@@ -54,12 +54,12 @@ open class Crawler: IndeterminateAnimation {
             rotationAnimation.path = arcPath.CGPath
             rotationAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             rotationAnimation.beginTime = (duration * 0.075) * Double(i)
-            rotationAnimation.calculationMode = .cubicPaced
+            rotationAnimation.calculationMode = CAAnimationCalculationMode.cubicPaced
 
             let animationGroup = CAAnimationGroup()
             animationGroup.animations = [rotationAnimation]
             animationGroup.duration = duration
-            animationGroup.repeatCount = .infinity
+            animationGroup.repeatCount = Float.infinity
             animationGroups.append(animationGroup)
 
         }

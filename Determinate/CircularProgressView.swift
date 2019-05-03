@@ -30,11 +30,11 @@ open class CircularProgressView: DeterminateAnimation {
 
     override func notifyViewRedesigned() {
         super.notifyViewRedesigned()
-        backgroundCircle.lineWidth = self.strokeWidth / 2
+        backgroundCircle.lineWidth = self.strokeWidth - 1
         progressLayer.lineWidth = strokeWidth
         percentLabelLayer.isHidden = !showPercent
 
-        backgroundCircle.strokeColor = foreground.withAlphaComponent(0.5).cgColor
+        backgroundCircle.strokeColor = NSColor.white.cgColor
         progressLayer.strokeColor = foreground.cgColor
         percentLabelLayer.foregroundColor = foreground.cgColor
     }
@@ -77,7 +77,7 @@ open class CircularProgressView: DeterminateAnimation {
         do {
             progressLayer.strokeEnd = 0 //REMOVe this
             progressLayer.fillColor = NSColor.clear.cgColor
-            progressLayer.lineCap = .round
+            progressLayer.lineCap = CAShapeLayerLineCap.round
             progressLayer.lineWidth = strokeWidth == -1 ? (rect.width * strokeScalingFactor) : strokeWidth
             
             progressLayer.frame = rect
